@@ -48,6 +48,8 @@ VOLUME /usr/share/elasticsearch/data
 
 COPY docker-entrypoint.sh /
 
+RUN /usr/share/elasticsearch/bin/plugin -install burtcorp/elasticsearch-head/0.9
+
 EXPOSE 9200 9300
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["elasticsearch", "-f"]
